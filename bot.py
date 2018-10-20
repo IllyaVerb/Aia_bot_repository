@@ -3,8 +3,8 @@
 import requests  
 import datetime
 from random import randint
-from mainClassAia import *
-from AiaFrases import *
+import mainClassAia
+import AiaFrases
 
 greet_bot = BotHandler("663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY")
 frases = botAiaFrases()  
