@@ -67,7 +67,7 @@ def main():
             
             s += str(last_chat_name)
             greet_bot.send_message(last_chat_id, s)
-            today += 1
+            #today += 1
 
         if last_chat_text == 'rasism?':
             greet_bot.send_message(last_chat_id, frases.rass_jokes[randint(0, len(frases.rass_jokes)-1)])
