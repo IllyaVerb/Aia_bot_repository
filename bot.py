@@ -48,7 +48,7 @@ def main():
             
             s += str(last_chat_name)
             greet_bot.send_message(last_chat_id, s)
-            today += 1
+            #today += 1
 
         new_offset = last_update_id + 1
 
