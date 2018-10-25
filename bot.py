@@ -15,7 +15,7 @@ now = datetime.datetime.now()
 def main():  
     new_offset = None
     today = now.day
-    hour = now.hour
+    hour = now.hour+3
 
     while True:
         greet_bot.get_updates(new_offset)
