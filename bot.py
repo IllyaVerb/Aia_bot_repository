@@ -49,6 +49,7 @@ def main():
                 s += "night, "
             
             s += str(last_chat_name)
+            s += " "+str(hour)
             greet_bot.send_message(last_chat_id, s)
             #today += 1
 
