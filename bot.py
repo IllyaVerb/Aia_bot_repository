@@ -5,7 +5,7 @@ import aiohttp
 from aiohttp import web
 import json
 
-TOKEN = '111111111:AAHKeYAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+TOKEN = '663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY'
 API_URL = 'https://api.telegram.org/bot%s/sendMessage' % TOKEN
 
 async def handler(request):
