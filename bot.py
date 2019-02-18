@@ -30,5 +30,11 @@ def webhook():
     return "?", 200
 server.run(host="0.0.0.0", port=8443)
 
-    
+
+# Handle '/start' and '/help'
+@bot.message_handler(commands=['help', 'start'])
+def send_welcome(message):
+    bot.reply_to(message,
+                 ("Hi there, I am EchoBot.\n"
+"I am here to echo your kind words back to you."))
 
