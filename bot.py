@@ -34,6 +34,6 @@ def echo_message(message):
     
 @bot.message_handler(commands=['start'])
 def handle_start(message):
-    bot.send_message(message.from_user.id, 'ПРИВЕТ!')
+    bot.send_message(message.chat.id, 'ПРИВЕТ!')
 
 server.run(host="0.0.0.0", port=8443)
