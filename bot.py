@@ -4,7 +4,6 @@
 # This is a simple echo bot using decorators and webhook with CherryPy
 # It echoes any incoming text messages and does not use the polling method.
 import requests  
-from bottle import Bottle, response, request as bottle_request
 
 BOT_URL = 'https://api.telegram.org/bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY/'
 BOT_TOKEN = 'bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY'
