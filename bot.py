@@ -15,7 +15,7 @@ bot = telebot.TeleBot(BOT_TOKEN)
 logger = telebot.logger
 telebot.logger.setLevel(logging.INFO)
 
-server = Flask(__name__)
+server = flask.Flask(__name__)
 @server.route("/bot", methods=['POST'])
 
 def getMessage():
