@@ -11,7 +11,7 @@ BOT_TOKEN = 'bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY'
 bot = telebot.TeleBot(BOT_TOKEN)
 
 # Перевіряємо чи є змінна середовище Хіроку
-if "HEROKU" in list(os.environ.keys()):
+if "HEROKU" in list(process.env.keys()):
     
     logger = telebot.logger
     telebot.logger.setLevel(logging.INFO)
