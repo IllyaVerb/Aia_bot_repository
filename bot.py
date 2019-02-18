@@ -8,8 +8,9 @@ from telebot import types
 import telebot
 
 BOT_URL = 'https://api.telegram.org/bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY/'
-API_TOKEN = 'bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY'
+BOT_TOKEN = 'bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY'
 
+"""
 WEBHOOK_HOST = 'aiabotpython.herokuapp.com'
 WEBHOOK_PORT = 8443  # 443, 80, 88 or 8443 (port need to be 'open')
 WEBHOOK_LISTEN = '0.0.0.0'  # In some VPS you may need to put here the IP addr
@@ -83,6 +84,14 @@ telebot.logger.setLevel(logging.INFO)
 server = flask.Flask(__name__)
 @server.route("/bot", methods=['POST'])
 
+
+# Handle '/start' and '/help'
+@bot.message_handler(commands=['help', 'start'])
+def send_welcome(message):
+    bot.reply_to(message,
+                 ("Hi there, I am EchoBot.\n"
+"I am here to echo your kind words back to you."))
+    
 def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
@@ -96,10 +105,3 @@ def webhook():
 server.run(host="0.0.0.0", port=8443)
 
 
-# Handle '/start' and '/help'
-@bot.message_handler(commands=['help', 'start'])
-def send_welcome(message):
-    bot.reply_to(message,
-                 ("Hi there, I am EchoBot.\n"
-"I am here to echo your kind words back to you."))
-"""
