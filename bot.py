@@ -31,7 +31,6 @@ if "HEROKU" in list(os.environ.keys()):
     server.run(host="0.0.0.0", port=os.environ.get('PORT', 80))
     
 else:
-    #якщо змінної середовища HEROKU нема, отже запуск з консолі.  
     # Видаляємо про всяк випадок вебхук і запускаємо з звичайним полілнгом.
     bot.remove_webhook()
     bot.polling(none_stop=True)
