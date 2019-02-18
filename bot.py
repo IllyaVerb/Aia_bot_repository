@@ -28,7 +28,7 @@ def webhook():
     bot.remove_webhook()
     bot.set_webhook(url="https://aiabotpython.herokuapp.com/") # тут url твого Хіроку додатка
     return "?", 200
-server.run(host="0.0.0.0", port=os.environ.get('PORT', 80))
+server.run(host="0.0.0.0", port=8443)
 
     
 
