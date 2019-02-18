@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import requests
+import logging
 from telebot import types
 import telebot
 
