@@ -8,6 +8,7 @@ name = "pypi"
 [packages]
 virtualenv = "==16.0.0"
 requests = "==2.20.0"
+pyTelegramBotAPI = "==3.6.6"
 
 [requires]
 python_version = "3.6"
