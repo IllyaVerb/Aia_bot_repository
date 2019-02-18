@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import requests
+from telebot import types
 import telebot
 
 BOT_URL = 'https://api.telegram.org/bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY/'
