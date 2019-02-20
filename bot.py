@@ -30,8 +30,8 @@ if "HEROKU" in list(os.environ.keys()):
         bot.remove_webhook()
         bot.set_webhook(url="https://aiabotpython.herokuapp.com/") # тут url твого Хіроку додатка
         return "?", 200
-
-    webhook()
+    
+    bot.send_message(460390112, 'ПРТ!')
 
     @bot.message_handler(func=lambda message: True, content_types=['text'])
     def echo_message(message):
