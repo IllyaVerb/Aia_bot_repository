@@ -27,7 +27,7 @@ if "HEROKU" in list(os.environ.keys()):
 
     @server.route("/")
     def webhook():
-        bot.deleteWebhook()
+        bot.remove_webhook()
         bot.set_webhook(url="https://aiabotpython.herokuapp.com/") # тут url твого Хіроку додатка
         return "?", 200
 
