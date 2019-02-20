@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
-#import requests
 import logging
 import os
 from flask import Flask, request
