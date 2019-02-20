@@ -3,6 +3,7 @@
 
 import requests
 import logging
+import os
 import flask
 from telebot import types
 import telebot
@@ -12,18 +13,19 @@ BOT_TOKEN = 'bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY'
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
-# Handle '/start' and '/help'
-@bot.message_handler(commands=['help', 'start'])
-def send_welcome(message):
-    bot.reply_to(message, "Hi there, I am EchoBot")
+if "HEROKU" in list(os.environ.keys()):
+    # Handle '/start' and '/help'
+    @bot.message_handler(commands=['help', 'start'])
+    def send_welcome(message):
+        bot.reply_to(message, "Hi there, I am EchoBot")
 
-# Handle all other messages with content_type 'text' (content_types defaults to ['text'])
-@bot.message_handler(func=lambda message: True)
-def echo_message(message):
-    bot.reply_to(message, message.text)
+    # Handle all other messages with content_type 'text' (content_types defaults to ['text'])
+    @bot.message_handler(func=lambda message: True)
+    def echo_message(message):
+        bot.reply_to(message, message.text)
 
 
-bot.polling()
+    bot.polling()
 """
 logger = telebot.logger
 telebot.logger.setLevel(logging.INFO)
