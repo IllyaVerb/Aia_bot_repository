@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import requests
+#import requests
 import logging
 import os
-import flask
+from flask import Flask, request
 from telebot import types
 import telebot
 
@@ -28,7 +28,7 @@ if "HEROKU" in list(os.environ.keys()):
     logger = telebot.logger
     telebot.logger.setLevel(logging.INFO)
 
-    server = flask.Flask(__name__)
+    server = Flask(__name__)
 
     @server.route("/bot", methods=['POST'])
     def getMessage():
