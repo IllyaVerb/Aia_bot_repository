@@ -5,7 +5,6 @@
 import logging
 import os
 from flask import Flask, request
-from telebot import types
 import telebot
 
 BOT_URL = 'https://api.telegram.org/bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY/'
