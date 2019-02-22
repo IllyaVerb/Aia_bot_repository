@@ -3,7 +3,7 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-- url: .*
+- url: https://aiabotpython.herokuapp.com/
   script: bot_gae.app
 
 libraries:
