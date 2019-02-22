@@ -1,12 +1,24 @@
 
-import logging
-import os
-from flask import Flask, request
-import telebot
+#import logging
+#import os
+#from flask import Flask, request
+#import telebot
 
 BOT_URL = 'https://api.telegram.org/bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY/'
-BOT_TOKEN = 'bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY'
+TOKEN = 'bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY'
 
+import os
+
+PORT = int(os.environ.get('PORT', '8443'))
+updater = Updater(TOKEN)
+# add handlers
+updater.start_webhook(listen="0.0.0.0",
+                      port=PORT,
+                      url_path=TOKEN)
+updater.bot.set_webhook("https://aiabotpython.herokuapp.com/" + TOKEN)
+updater.idle()
+
+"""
 bot = telebot.TeleBot(BOT_TOKEN)
 
 #bot.send_message(460390112, 'ПРТ!')
@@ -42,3 +54,4 @@ else:
     
     bot.remove_webhook()
     bot.polling(none_stop=True)
+"""
