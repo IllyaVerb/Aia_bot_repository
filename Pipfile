@@ -10,6 +10,7 @@ virtualenv = "==16.0.0"
 requests = "==2.20.0"
 pyTelegramBotAPI = "==3.6.6"
 Flask = "==1.0.2"
+python-telegram-bot = "==2.5"
 
 [requires]
 python_version = "3.6"
