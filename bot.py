@@ -45,7 +45,7 @@ def set_webhook():
 
 @app.route('/')
 def index():
-return '.'
+    return '.'
 
 """
 bot = telebot.TeleBot(BOT_TOKEN)
