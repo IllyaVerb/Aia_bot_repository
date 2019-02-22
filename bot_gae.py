@@ -9,8 +9,10 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+TOKEN = 'bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY'
+
 global bot
-bot = telegram.Bot(token='TOKEN')
+bot = telegram.Bot(token=TOKEN)
 
 
 @app.route('/HOOK', methods=['POST'])
@@ -32,7 +34,7 @@ def webhook_handler():
 
 @app.route('/set_webhook', methods=['GET', 'POST'])
 def set_webhook():
-    s = bot.setWebhook('https://URL/HOOK')
+    s = bot.setWebhook('https://aiabotpython.herokuapp.com/HOOK')
     if s:
         return "webhook setup ok"
     else:
