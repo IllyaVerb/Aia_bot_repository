@@ -15,7 +15,7 @@ class Bot():
 
     def __init__(self):
         #self.db_conn = DB_connector(settings.host, settings.database, settings.user, settings.password)
-
+        print("popopo")
         self.start_bot()
 
     def reply_to_start_command(self, bot, update):
