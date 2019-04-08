@@ -30,7 +30,7 @@ class Bot():
             self.db_conn.add_user(id=id, first_name=first_name,
                                   last_name=last_name, username=username)
             admin_msg = 'Новый пользователь ' + first_name + ' был добавлен в базу'
-            m = bot.sendMessage(362212345, admin_msg)
+            m = bot.sendMessage(user.id, admin_msg, user.id)
             print('user added')
         else:
             print('user already exist')
@@ -39,7 +39,7 @@ class Bot():
             "Помочь советом - это мое призвание!\n"
             "Даю советы через команду /advice"
         )
-        m = bot.sendMessage(362212345, "кто-то нажал старт :)")
+        m = bot.sendMessage(user.id, "кто-то нажал старт :)")
 
     def get_advice(self, bot, update):
 
@@ -59,7 +59,7 @@ class Bot():
 
         user = update.message.from_user
         s = str(user.first_name) + " нажал advice :)"
-        m = bot.sendMessage(362212345, s)
+        #m = bot.sendMessage(362212345, s)
 
         id = self.db_conn.get_user_by_id(str(user.id))
         if not id:
@@ -72,7 +72,7 @@ class Bot():
             self.db_conn.add_user(id=id, first_name=first_name,
                                   last_name=last_name, username=username)
             admin_msg = 'Новый пользователь ' + first_name + '(@' + username + ')' + ' был добавлен в базу'
-            m = bot.sendMessage(362212345, admin_msg)
+            #m = bot.sendMessage(362212345, admin_msg)
 
         datetime = time.ctime()
         self.db_conn.add_logs(r'\action', datetime, user_id=user.id, reply_text=adv)
@@ -286,7 +286,7 @@ class Bot():
             updater.start_webhook(listen="0.0.0.0",
                                   port=PORT,
                                   url_path=settings.TELEGRAM_API_KEY)
-            updater.bot.set_webhook("https://advice-bot.herokuapp.com/" + settings.TELEGRAM_API_KEY)
+            updater.bot.set_webhook("https://aiabotpython.herokuapp.com/" + settings.TELEGRAM_API_KEY)
             updater.idle()
         else:
 
