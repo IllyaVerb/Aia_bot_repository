@@ -39,7 +39,7 @@ def start_bot():
     updater.start_webhook(listen="0.0.0.0",
                           port=PORT,
                           url_path=settings.TELEGRAM_API_KEY)
-    updater.bot.set_webhook("https://advice-bot.herokuapp.com/" + settings.TELEGRAM_API_KEY)
+    updater.bot.set_webhook("https://aiabotpython.herokuapp.com/" + settings.TELEGRAM_API_KEY)
     updater.idle()
 
 
