@@ -21,20 +21,20 @@ class Bot():
     def reply_to_start_command(self, bot, update):
         user = update.message.from_user
         m = bot.sendMessage(user.id, "lolololoo")
-        if self.db_conn.get_user_by_id(str(user.id)) == None:
-            id = str(user.id)
-            first_name = str(user.first_name)
-            last_name = str(user.last_name)
-            username = str(user.username)
-            # s = str(id) + first_name + last_name + username
-            # print(s)
-            self.db_conn.add_user(id=id, first_name=first_name,
-                                  last_name=last_name, username=username)
-            admin_msg = 'Новый пользователь ' + first_name + ' был добавлен в базу'
-            m = bot.sendMessage(user.id, admin_msg, user.id)
-            print('user added')
-        else:
-            print('user already exist')
+        #if self.db_conn.get_user_by_id(str(user.id)) == None:
+            #id = str(user.id)
+            #first_name = str(user.first_name)
+            #last_name = str(user.last_name)
+            #username = str(user.username)
+            ## s = str(id) + first_name + last_name + username
+            ## print(s)
+            #self.db_conn.add_user(id=id, first_name=first_name,
+            #                      last_name=last_name, username=username)
+            #admin_msg = 'Новый пользователь ' + first_name + ' был добавлен в базу'
+            #m = bot.sendMessage(user.id, admin_msg, user.id)
+            #print('user added')
+        #else:
+            #print('user already exist')
 
         update.message.reply_text(
             "Помочь советом - это мое призвание!\n"
