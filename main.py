@@ -20,6 +20,7 @@ class Bot():
 
     def reply_to_start_command(self, bot, update):
         user = update.message.from_user
+        m = bot.sendMessage(user.id, "lolololoo")
         if self.db_conn.get_user_by_id(str(user.id)) == None:
             id = str(user.id)
             first_name = str(user.first_name)
