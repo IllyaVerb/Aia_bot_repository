@@ -14,7 +14,7 @@ NEW_ADVICE = 1
 class Bot():
 
     def __init__(self):
-        self.db_conn = DB_connector(settings.host, settings.database, settings.user, settings.password)
+        #self.db_conn = DB_connector(settings.host, settings.database, settings.user, settings.password)
 
         self.start_bot()
 
