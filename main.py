@@ -6,7 +6,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, TelegramError
 import settings
 import api
 import os
-from db_connector import DB_connector
+#from db_connector import DB_connector
 DEBUG = False
 import time
 NEW_ADVICE = 1
