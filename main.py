@@ -10,6 +10,7 @@ import os
 DEBUG = False
 import time
 NEW_ADVICE = 1
+TELEGRAM_API_KEY = 'bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY'
 
 class Bot():
 
@@ -263,7 +264,7 @@ class Bot():
         if DEBUG == False:
             PORT = int(os.environ.get('PORT', '8443'))
 
-            updater = Updater(settings.TELEGRAM_API_KEY)
+            updater = Updater(TELEGRAM_API_KEY)
 
             dp = updater.dispatcher
             dp.add_handler(CommandHandler("start", self.reply_to_start_command))
@@ -286,8 +287,8 @@ class Bot():
             dp.add_handler(conv_handler)
             updater.start_webhook(listen="0.0.0.0",
                                   port=PORT,
-                                  url_path=settings.TELEGRAM_API_KEY)
-            updater.bot.set_webhook("https://aiabotpython.herokuapp.com/" + settings.TELEGRAM_API_KEY)
+                                  url_path=TELEGRAM_API_KEY)
+            updater.bot.set_webhook("https://aiabotpython.herokuapp.com/" + TELEGRAM_API_KEY)
             updater.idle()
         else:
 
