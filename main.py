@@ -10,7 +10,7 @@ import os
 DEBUG = False
 import time
 NEW_ADVICE = 1
-TELEGRAM_API_KEY = 'bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY'
+TELEGRAM_API_KEY = "bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY"
 
 class Bot():
 
@@ -21,7 +21,7 @@ class Bot():
 
     def reply_to_start_command(self, bot, update):
         user = update.message.from_user
-        m = bot.sendMessage(user.id, "lolololoo")
+        m = bot.sendMessage(update.message.chat_id, "lolololoo")
         #if self.db_conn.get_user_by_id(str(user.id)) == None:
             #id = str(user.id)
             #first_name = str(user.first_name)
@@ -41,7 +41,7 @@ class Bot():
             "Помочь советом - это мое призвание!\n"
             "Даю советы через команду /advice"
         )
-        m = bot.sendMessage(user.id, "кто-то нажал старт :)")
+        m = bot.sendMessage(update.message.chat_id, "кто-то нажал старт :)")
 
     def get_advice(self, bot, update):
 
@@ -264,7 +264,7 @@ class Bot():
         if DEBUG == False:
             PORT = int(os.environ.get('PORT', '8443'))
 
-            updater = Updater(TELEGRAM_API_KEY)
+            updater = Updater(token=TELEGRAM_API_KEY)
 
             dp = updater.dispatcher
             dp.add_handler(CommandHandler("start", self.reply_to_start_command))
