@@ -292,7 +292,7 @@ class Bot():
             updater.idle()
         else:
 
-            updater = Updater(settings.TELEGRAM_API_KEY_test)
+            updater = Updater(TELEGRAM_API_KEY)
 
             dp = updater.dispatcher
             dp.add_handler(CommandHandler("start", self.reply_to_start_command))
