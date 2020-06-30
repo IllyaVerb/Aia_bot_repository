@@ -61,11 +61,11 @@ class Bot():
 
         user = update.message.from_user
         s = str(user.first_name) + " нажал advice :)"
-        #m = bot.sendMessage(362212345, s)
+        #m = bot.sendMessage(460390112, s)
 
         id = self.db_conn.get_user_by_id(str(user.id))
         if not id:
-            # m = bot.sendMessage(362212345, 'starting edding new user')
+            # m = bot.sendMessage(460390112, 'starting edding new user')
             id = str(user.id)
             first_name = str(user.first_name)
             last_name = str(user.last_name)
@@ -74,11 +74,11 @@ class Bot():
             self.db_conn.add_user(id=id, first_name=first_name,
                                   last_name=last_name, username=username)
             admin_msg = 'Новый пользователь ' + first_name + '(@' + username + ')' + ' был добавлен в базу'
-            #m = bot.sendMessage(362212345, admin_msg)
+            #m = bot.sendMessage(460390112, admin_msg)
 
         datetime = time.ctime()
         self.db_conn.add_logs(r'\action', datetime, user_id=user.id, reply_text=adv)
-        # m = bot.sendMessage(362212345, s)
+        # m = bot.sendMessage(460390112, s)
 
         # print(update.message.from_user)
         # print('user')
@@ -86,33 +86,33 @@ class Bot():
     def get_users_list(self, bot, update):
         user = update.message.from_user
 
-        if user.id == 362212345:
+        if user.id == 460390112:
             user_list = self.db_conn.show_all_users()
-            m = bot.sendMessage(362212345, user_list)
+            m = bot.sendMessage(460390112, user_list)
 
     def get_users_number(self, bot, update):
         user = update.message.from_user
 
         n = self.db_conn.get_users_number()
-        if user.id == 362212345:
+        if user.id == 460390112:
             msg = 'Всего {} пользователей'.format(n)
-            m = bot.sendMessage(362212345, msg)
+            m = bot.sendMessage(460390112, msg)
 
     def get_logs_number(self, bot, update):
         user = update.message.from_user
 
         n = self.db_conn.get_logs_len()
-        if user.id == 362212345:
+        if user.id == 460390112:
             msg = 'Всего {} раз вызвана команда /advice'.format(n)
-            m = bot.sendMessage(362212345, msg)
+            m = bot.sendMessage(460390112, msg)
 
     def get_avrg_clicks(self, bot, update):
         user = update.message.from_user
 
         n = self.db_conn.get_logs()
-        if user.id == 362212345:
+        if user.id == 460390112:
             msg = 'Всего {} пользователей'.format(n)
-            m = bot.sendMessage(362212345, msg)
+            m = bot.sendMessage(460390112, msg)
 
     def get_users_saved_adv(self, bot, update):
         try:
@@ -144,7 +144,7 @@ class Bot():
         reply_markup = InlineKeyboardMarkup(keyboard)
         users_id = self.db_conn.get_all_user_id()
         # try:
-        #     self.send_msg_to_user(bot, update, user_id=362212345, msg=msg, reply_markup=reply_markup)
+        #     self.send_msg_to_user(bot, update, user_id=460390112, msg=msg, reply_markup=reply_markup)
         # except Exception as ex:
         #     print(ex)
         n = 0
@@ -160,10 +160,10 @@ class Bot():
                 except:
                     error_msg = 'error with id: ' + str(user_id)
                     # print(error_msg)
-                    self.send_msg_to_user(bot, update, user_id=362212345, msg=error_msg)
+                    self.send_msg_to_user(bot, update, user_id=460390112, msg=error_msg)
         msg = 'Рассылка окончена. \n' \
               'Сообщение получили ' + str(n) + ' пользователей из ' + str(n_users)
-        self.send_msg_to_user(bot, update, user_id=362212345, msg=msg)
+        self.send_msg_to_user(bot, update, user_id=460390112, msg=msg)
 
         return ConversationHandler.END
 
@@ -183,7 +183,7 @@ class Bot():
         # reply_markup = InlineKeyboardMarkup(keyboard)
         users_id = self.db_conn.get_all_user_id()
         # try:
-        #     self.send_msg_to_user(bot, update, user_id=362212345, msg=msg, reply_markup=reply_markup)
+        #     self.send_msg_to_user(bot, update, user_id=460390112, msg=msg, reply_markup=reply_markup)
         # except Exception as ex:
         #     print(ex)
         n = 0
@@ -199,19 +199,19 @@ class Bot():
                 except:
                     error_msg = 'error with id: ' + str(user_id)
                     # print(error_msg)
-                    self.send_msg_to_user(bot, update, user_id=362212345, msg=error_msg)
+                    self.send_msg_to_user(bot, update, user_id=460390112, msg=error_msg)
         msg = 'Рассылка окончена. \n' \
               'Сообщение получили ' + str(n) + ' пользователей из ' + str(n_users)
-        self.send_msg_to_user(bot, update, user_id=362212345, msg=msg)
+        self.send_msg_to_user(bot, update, user_id=460390112, msg=msg)
 
         return
 
     def start_mailing(self, bot, update):
-        self.send_msg_to_user(bot, update, user_id=362212345, msg='Дай мне совет, который я всем разошлю')
+        self.send_msg_to_user(bot, update, user_id=460390112, msg='Дай мне совет, который я всем разошлю')
         return NEW_ADVICE
 
     def fallback(self, bot, update):
-        self.send_msg_to_user(bot, update, user_id=362212345, msg='не понимаю')
+        self.send_msg_to_user(bot, update, user_id=460390112, msg='не понимаю')
         return NEW_ADVICE
 
     def button(self, bot, update):
