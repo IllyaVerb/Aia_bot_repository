@@ -320,4 +320,13 @@ class Bot():
 
 
 #if __name__ == "__main__":
-bot = Bot()
+#    bot = Bot()
+
+def start(update, context):
+    context.bot.send_message(chat_id=460390112, text="I'm a bot, please talk to me!")
+    
+updater = Updater(token=TELEGRAM_API_KEY, use_context=True)
+dispatcher = updater.dispatcher
+dispatcher.add_handler(CommandHandler('start', start))
+updater.start_polling()
+updater.idle()
