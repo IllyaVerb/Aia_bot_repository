@@ -1,12 +1,10 @@
 from telegram.ext import Updater, CommandHandler, ConversationHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, TelegramError
 # import collections
-import settings
-import api
-import os
+import settings, api, os, time
 #from db_connector import DB_connector
 DEBUG = True
-import time
+import logging
 NEW_ADVICE = 1
 TELEGRAM_API_KEY = "bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY"
 
@@ -323,10 +321,46 @@ class Bot():
 #    bot = Bot()
 
 def start(update, context):
-    context.bot.send_message(chat_id=460390112, text="I'm a bot, please talk to me!")
-    
-updater = Updater(token=TELEGRAM_API_KEY, use_context=True)
-dispatcher = updater.dispatcher
-dispatcher.add_handler(CommandHandler('start', start))
-updater.start_polling()
-updater.idle()
+    """Send a message when the command /start is issued."""
+    update.message.reply_text('Hi!')
+
+
+def help_command(update, context):
+    """Send a message when the command /help is issued."""
+    update.message.reply_text('Help!')
+
+
+def echo(update, context):
+    """Echo the user message."""
+    update.message.reply_text(update.message.text)
+
+
+def main():
+    """Start the bot."""
+    # Create the Updater and pass it your bot's token.
+    # Make sure to set use_context=True to use the new context based callbacks
+    # Post version 12 this will no longer be necessary
+    updater = Updater(TELEGRAM_API_KEY, use_context=True)
+
+    # Get the dispatcher to register handlers
+    dp = updater.dispatcher
+
+    # on different commands - answer in Telegram
+    dp.add_handler(CommandHandler("start", start))
+    dp.add_handler(CommandHandler("help", help_command))
+
+    # on noncommand i.e message - echo the message on Telegram
+    dp.add_handler(MessageHandler(Filters.text, echo))
+
+    # Start the Bot
+    updater.start_polling()
+
+    # Run the bot until you press Ctrl-C or the process receives SIGINT,
+    # SIGTERM or SIGABRT. This should be used most of the time, since
+    # start_polling() is non-blocking and will stop the bot gracefully.
+    updater.idle()
+
+
+if __name__ == '__main__':
+    main()
+
