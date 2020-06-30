@@ -292,7 +292,7 @@ class Bot():
             updater.idle()
         else:
 
-            updater = Updater(TELEGRAM_API_KEY)
+            updater = Updater(token=TELEGRAM_API_KEY, use_context=True)
 
             dp = updater.dispatcher
             dp.add_handler(CommandHandler("start", self.reply_to_start_command))
@@ -314,8 +314,8 @@ class Bot():
 
             #dp.add_handler(conv_handler)
             updater.start_polling()
-            updater.idle()
             m = bot.sendMessage(460390112, 'Дайkjhgfdsdfgh', reply_markup=None)
+            updater.idle()
 
 
 
