@@ -1,5 +1,3 @@
-
-
 from telegram.ext import Updater, CommandHandler, ConversationHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, TelegramError
 # import collections
@@ -265,7 +263,9 @@ class Bot():
             PORT = int(os.environ.get('PORT', '8443'))
 
             updater = Updater(token=TELEGRAM_API_KEY)
-
+            
+            m = bot.sendMessage(460390112, 'Дайkjhgfdsdfgh', reply_markup=None)
+            
             dp = updater.dispatcher
             dp.add_handler(CommandHandler("start", self.reply_to_start_command))
             dp.add_handler(CommandHandler("advice", self.get_advice))
@@ -275,16 +275,16 @@ class Bot():
             dp.add_handler(CommandHandler("saved", self.get_users_saved_adv))
             dp.add_handler(CommandHandler("send_info", self.send_info))
 
-            dp.add_handler(CallbackQueryHandler(self.button))
-            conv_handler = ConversationHandler(
-                entry_points=[CommandHandler('send', self.start_mailing)],
-                states={
-                    NEW_ADVICE: [MessageHandler(Filters.text, self.send_msg_to_all_users)],
-                },
-                fallbacks=[CommandHandler('cancel', self.fallback)]
-            )
+            #dp.add_handler(CallbackQueryHandler(self.button))
+            #conv_handler = ConversationHandler(
+            #    entry_points=[CommandHandler('send', self.start_mailing)],
+            #    states={
+            #        NEW_ADVICE: [MessageHandler(Filters.text, self.send_msg_to_all_users)],
+            #    },
+            #    fallbacks=[CommandHandler('cancel', self.fallback)]
+            #)
 
-            dp.add_handler(conv_handler)
+            #dp.add_handler(conv_handler)
             updater.start_webhook(listen="0.0.0.0",
                                   port=PORT,
                                   url_path=TELEGRAM_API_KEY)
@@ -293,6 +293,7 @@ class Bot():
         else:
 
             updater = Updater(TELEGRAM_API_KEY)
+            m = bot.sendMessage(460390112, 'Дайkjhgfdsdfgh', reply_markup=None)
 
             dp = updater.dispatcher
             dp.add_handler(CommandHandler("start", self.reply_to_start_command))
@@ -303,16 +304,16 @@ class Bot():
             dp.add_handler(CommandHandler("saved", self.get_users_saved_adv))
             dp.add_handler(CommandHandler("send_info", self.send_info))
 
-            dp.add_handler(CallbackQueryHandler(self.button))
-            conv_handler = ConversationHandler(
-                entry_points=[CommandHandler('send', self.start_mailing)],
-                states={
-                    NEW_ADVICE: [MessageHandler(Filters.text, self.send_msg_to_all_users)],
-                },
-                fallbacks=[CommandHandler('cancel', self.fallback)]
-            )
+            #dp.add_handler(CallbackQueryHandler(self.button))
+            #conv_handler = ConversationHandler(
+            #    entry_points=[CommandHandler('send', self.start_mailing)],
+            #    states={
+            #        NEW_ADVICE: [MessageHandler(Filters.text, self.send_msg_to_all_users)],
+            #    },
+            #    fallbacks=[CommandHandler('cancel', self.fallback)]
+            #)
 
-            dp.add_handler(conv_handler)
+            #dp.add_handler(conv_handler)
             updater.start_polling()
             updater.idle()
 
