@@ -5,7 +5,7 @@ import settings
 import api
 import os
 #from db_connector import DB_connector
-DEBUG = False
+DEBUG = True
 import time
 NEW_ADVICE = 1
 TELEGRAM_API_KEY = "bot663214217:AAErqvYgKbeE1EYLBwh5b4Pds59d1jqltPY"
